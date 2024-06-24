@@ -2,7 +2,7 @@
 import "./TransactionList.css"
 
 export default function TransactionList({ transaction }) {
-    console.log(transaction)
+    // console.log(transaction)
   return (
     <div>
       {/* {transaction.map( (trn) => {
