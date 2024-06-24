@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ebce02;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+    gap: 20px;
+}
+
+.form span {
+    display: block;
+}
+.form label {
+    margin: 0 auto;
+}
+
+.form input {
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+}
+.form input:focus {
+    outline: 1px solid gray;
+    border: none;
+}
+
+.form button {
+    width: 300px;
+    height: 30px;
+    background: #ebce02;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.form button:hover {
+    scale: 1.02;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}

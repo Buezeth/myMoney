@@ -1,0 +1,46 @@
+.nav-bar {
+    /* background: #CCD5AE; */
+    padding: 10px 0;
+}
+
+.nav-bar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.nav-bar .home-link {
+    font-weight: 900;
+    font-size: 3rem;
+    list-style: none;
+}
+
+.nav-bar .home-link a {
+    color: #ebce02;
+}
+
+.other-links {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.other-links button {
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #ebce02;
+    border-radius: 5px;
+}
+
+.other-links button:hover {
+    scale: 0.97;
+}
+
+.nav-bar .home-link a, .other-links a {
+    text-decoration: none;
+}
