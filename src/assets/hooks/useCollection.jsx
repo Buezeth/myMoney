@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react"
 import { db } from "../firebase/config"
-import { collection, onSnapshot } from "firebase/firestore"
+import { collection, onSnapshot, where, query, orderBy } from "firebase/firestore"
 
 
 
-export const useCollection = (coll) => {
+export const useCollection = (coll, queryArg) => {
     const [doc, setDoc] = useState()
     const [error, setError] = useState(null)
 
-    let database = []
-
+    
     useEffect(()=>{
-        const unsubscribe = onSnapshot(collection(db, coll), (querySnapshot)=>{
-            // console.log(querySnapshot.data())
+        let q = collection(db, coll);
+        if(queryArg) {
+            q = query(collection(db, coll), where(...queryArg))
+            // q = query(collection(db, coll), where(...queryArg), orderBy("createdAt"))
+        }
+        
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
             try {
+                const database = []
                 querySnapshot.forEach((element) => {
                     // console.log(element.data())
                     database.push({...element.data(), id: element.id})
                 });
+                setDoc(database)
             } catch(err) {
+                console.error(err)
                 setError("Couldn't fetch data")
             }
     
-            setDoc(database)
         })
-
         return ()=> unsubscribe()
-    }, [coll])
+
+    }, [])
     
     return { doc, error }
 }

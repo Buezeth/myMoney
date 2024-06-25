@@ -37,7 +37,7 @@ export const AuthContextProvider = ({ children }) => {
             if(user) {
                 console.log("Logged In")
                 dispatch({type: "CHANGE_LOG", payload: user})
-                unsub()
+                // unsub()
             }
             else {
                 console.log("Not Looged In")
@@ -45,7 +45,7 @@ export const AuthContextProvider = ({ children }) => {
             }
         })
 
-        // unsub()
+        return () => unsub()
     }, [])
 
     return (

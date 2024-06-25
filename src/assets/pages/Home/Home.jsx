@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 export default function Home() {
 
   const { user } = useAuthContext()
-  const { doc, error } = useCollection("Transaction")
+  const { doc, error } = useCollection("Transaction", ["uid", '==', user.uid])
     if(auth.currentUser) {
         console.log(auth.currentUser.email)
         console.log(doc)
