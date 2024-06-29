@@ -1,6 +1,7 @@
 .transactionList {
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
     width: 500px;
+    /* min-width: 256px; */
     height: 60px;
     display: flex;
     text-align: center;

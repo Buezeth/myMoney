@@ -61,9 +61,9 @@ export const useFireStore = (collect) => {
         dispatchIfNotCanceled({type: "IS_PENDING"})
 
         try {
-            const deleteDoc = await deleteDoc(doc(db, collect, id))
+            const deleteDocument = await deleteDoc(doc(db, "Transaction", id))
             console.log("Delete Doc")
-            dispatchIfNotCanceled({type: "DELETE_DOC", payload:deleteDoc })
+            dispatchIfNotCanceled({type: "DELETE_DOC", payload:deleteDocument })
         }
         catch(err) {
             dispatchIfNotCanceled({type: "ERROR", payload: "Couldn't delet doc"})
